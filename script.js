@@ -7,19 +7,23 @@ const clearButton = document.getElementById('clearButton');
 const locationElement = document.getElementById('location');
 const temperatureElement = document.getElementById('temperature');
 const descriptionElement = document.getElementById('description');
+const errorElement = document.getElementById('error-1');
 const cityInput = document.getElementById('cityInput');
+const stateInput = document.getElementById('stateInput');
 
 searchButton.addEventListener('click', fetchCity);
 clearButton.addEventListener('click', clearDisplay);
 
 // Find the Lat and Lon of the input City
 function fetchCity () {
+    clearDisplay();
     // Grab the input value
     const city = cityInput.value;
+    const state = stateInput.value;
 
     //Check to see if there was an input
     if (city) {
-        const url = `${apiGeoUrl}?q=${city}&appid=${apiKey}`;
+        const url = `${apiGeoUrl}?q=${city},${state},us&appid=${apiKey}`;
         
         // Fetch the url, if there is no response, there was an error
         fetch(url)
@@ -32,10 +36,11 @@ function fetchCity () {
             })
             .catch(error => {
                 console.error('Error fetching weather data:', error);
-                alert('Please, enter a known location');
+                errorElement.textContent = 'Please, enter a valid location.';
             });
+            
     } else {
-        alert('Please, enter a location');
+        errorElement.textContent = 'Please, enter a location.';
     }
 }
 
@@ -70,4 +75,5 @@ function clearDisplay () {
     locationElement.textContent = null;
     temperatureElement.textContent = null;
     descriptionElement.textContent = null;
+    errorElement.textContent = null;
 }
