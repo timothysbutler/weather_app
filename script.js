@@ -36,7 +36,7 @@ function fetchCity () {
             })
             .catch(error => {
                 console.error('Error fetching weather data:', error);
-                errorElement.textContent = 'Please, enter a valid location.';
+                errorElement.textContent = url;
             });
             
     } else {
