@@ -1,5 +1,5 @@
 const apiKey = 'd798d28803e5eb33f00ae1532afaaeb9';
-const apiGeoUrl = 'http://api.openweathermap.org/geo/1.0/direct';
+const apiGeoUrl = 'https://api.openweathermap.org/geo/1.0/direct';
 const apiUrl = 'https://api.openweathermap.org/data/2.5/weather';
 
 const searchButton = document.getElementById('searchButton');
