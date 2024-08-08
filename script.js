@@ -27,7 +27,7 @@ function fetchCity () {
         
         // Fetch the url, if there is no response, there was an error
         fetch(url)
-            .then(response => {return response.json();})
+            .then(response => response.json())
             // Send the Lat and Lon to find the weather at that location
             .then(data => {
                 const lat = data[0].lat;
@@ -36,7 +36,7 @@ function fetchCity () {
             })
             .catch(error => {
                 console.error('Error fetching weather data:', error);
-                errorElement.textContent = 'error';
+                errorElement.textContent = error;
             });
             
     } else {
