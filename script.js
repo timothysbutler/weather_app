@@ -1,4 +1,5 @@
 const apiKey = process.env.API_KEY_HERE;
+console.log(apiKey);
 const apiGeoUrl = 'https://api.openweathermap.org/geo/1.0/direct';
 const apiUrl = 'https://api.openweathermap.org/data/2.5/weather';
 
